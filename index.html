@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/Controllers/list.js"></script>
+    <script src="assets/js/Factories/quizMetrics.js"></script>
+
+</head>
+<body ng-app="myapp">
+    <div class="container">
+        <div class="page-header">
+            <h1>Turtle Facts Quiz</h1>
+            <h3>
+                Learn about all the turtles below before you decide to take on the 
+                <strong>TURTLE QUIZ</strong>
+            </h3>
+        </div>
+        <div ng-controller="listCtrl as list" ng-hide="list.quizActive">
+            <form class="form-inline well well-sm clearfix">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" class="form-control" ng-model="list.search" placeholder="Search">
+                <button class="btn btn-warning pull-right" ng-click="list.activateQuiz()"><strong>Start Quiz</strong></button>
+            </form>
+            <div class="row">
+                <div class="col-sm-6" ng-repeat="turtle in list.data | filter:list.search">
+                    <div class="well well-sm">
+                        <div class="row">
+                            <div class="col-sm-6 well-div">
+                                <img ng-src={{turtle.img_url}} class="img-rounded img-responsive well-img" alt="">
+                            </div>
+                            <div class="col-sm-6">
+                                <h4>{{turtle.type}}</h4>
+                                <p><strong>Locations:</strong>{{turtle.Locations}}</p>
+                                <p><strong>Size:</strong>{{turtle.size}}</p>
+                                <p><strong>Average Lifespan:</strong>{{turtle.lifespan}}</p>
+                                <p><strong>Diet</strong>{{turtle.diet}}</p>
+                                <button ng-click="list.changeActiveTurtle(turtle)" class="btn btn-primary pull-right" data-toggle="modal" data-target="#turtle-info" >Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" id="turtle-info">
+                    <div class="modal-dialogue">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>{{list.activeTurtle.type}}</h2>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-8 col-xs-offset-2">
+                                        <img ng-src="{{list.activeTurtle.img_url}}" class="img-rounded img-responsive" alt="">
+                                    </div>
+                                    </div>
+                                    <div class="row top-buffer">
+                                        <div class="col-sm-6">
+                                                <p><strong>Locations:</strong>{{list.activeTurtle.Locations}}</p>
+                                                <p><strong>Size:</strong>{{list.activeTurtle.size}}</p>
+                                                <p><strong>Average Lifespan:</strong>{{list.activeTurtle.lifespan}}</p>
+                                                <p><strong>Diet</strong>{{list.activeTurtle.diet}}</p>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row top-buffer">
+                                        <div class="col-sm-12">
+                                            <p>{{list.activeTurtle.description}}</p>
+                                            <button class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
