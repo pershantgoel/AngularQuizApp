@@ -24,7 +24,7 @@
                 <strong>TURTLE QUIZ</strong>
             </h3>
         </div>
-        <div ng-controller="listCtrl as list" ng-hide="list.quizActive">
+        <div ng-controller="listCtrl as list" ng-hide="list.quizMetrics.quizActive">
             <form class="form-inline well well-sm clearfix">
                 <span class="glyphicon glyphicon-search"></span>
                 <input type="text" class="form-control" ng-model="list.search" placeholder="Search">
@@ -83,6 +83,8 @@
                 </div>
 
         </div>
+
+        <div ng-controller="quizCtrl as quiz"></div>
 
     </div>
     

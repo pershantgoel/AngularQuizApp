@@ -1,15 +1,17 @@
 app.controller("listCtrl",listController);
  
-function listController(){
+function listController(quizMetrics){
     var vm=this;
+
+    vm.quizMetrics=quizMetrics;
     vm.data=turtlesData;
     vm.activeTurtle={};
     vm.changeActiveTurtle=changeActiveTurtle;
     vm.activateQuiz=activateQuiz;
-    vm.quizActive=false;
+    vm.search="";
 
     function activateQuiz(){
-        vm.quizActive=true;
+        quizMetrics.changeState(true);
     }
     
     function changeActiveTurtle(index){
