@@ -1,14 +1,21 @@
-app.factory("quizMetrics",QuizMetrics);
-
-function QuizMetrics(){
+app.factory("quizMetrics",()=>{
     var quizObj={
-        quizActive:false,
-        changeState=changeState,
+        // resultActive:false;
+        // quizActive:false,
+        // changeState:changeState,
     }
     return quizObj;
 
-    function changeState(state){
-        quizObj.quizActive=state;
+    // function changeState(metric,state){
+    //     if(metrtic==="quiz"){
+    //         quizObj.quizActive=state;
+    //     } else if(metric==="results"){
+    //         quizObj.resultActive=state;
+    //     }else{
+    //         return false;
+    //     }
+       
 
-    }
-}
+    // }
+
+});
