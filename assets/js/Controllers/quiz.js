@@ -1,13 +1,13 @@
 app.controller("quizCtrl",QuizController);
 
-function QuizController($scope,quizMetrics , dataService){
+function QuizController($scope,$rootScope,quizMetrics , dataService){
     
-    // quizMetrics=quizMetrics;
-    // dataService=dataService;
-    $scope.questionData=dataService.quizQuestions ;
+    $rootScope.questionData=dataService.quizQuestions ;
     $scope.activeQuestion=0;
     var numQuestionsAnswered=0;
     $scope.error=false;
+    $scope.finalise=false;
+    $scope.resultActive=false;
 
     $scope.setActiveQuestion=(index)=>{
         if(index===undefined){
@@ -43,6 +43,7 @@ function QuizController($scope,quizMetrics , dataService){
                 }
             }
             $scope.error=false;
+            $scope.finalise=true;
             return;
         }
         }
@@ -55,9 +56,10 @@ function QuizController($scope,quizMetrics , dataService){
 
     $scope.finaliseAnswers=()=>{
         $scope.finalise=false;
-        // numQuestionsAnswered=0;
-        // $scope.activeQuestion=0;
-        // quizMetrics.markQuiz();
+        numQuestionsAnswered=0;
+        $scope.activeQuestion=0;
+        $rootScope.resultActive=true;
+        quizMetrics.markQuiz();
         // quizMetrics.changeState("quiz",false);
         // quizMetrics.changeState("results",true);
     }

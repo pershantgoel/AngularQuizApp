@@ -16,6 +16,7 @@
     <script src="assets/js/Factories/dataservice.js"></script>
     <script src="assets/js/Controllers/list.js"></script>
     <script src="assets/js/Controllers/quiz.js"></script>
+    <script src="assets/js/Controllers/result.js"></script>
     
 
 </head>
@@ -28,7 +29,7 @@
                 <strong>TURTLE QUIZ</strong>
             </h3>
         </div>
-        <div ng-controller="listCtrl" ng-hide="quizActive">
+        <div ng-controller="listCtrl" ng-hide="quizActive || resultActive">
             <form class="form-inline well well-sm clearfix">
                 <span class="glyphicon glyphicon-search"></span>
                 <input type="text" class="form-control" ng-model="search" placeholder="Search">
@@ -153,6 +154,37 @@
                 </div>
             </div>
 
+        </div>
+
+        <div ng-controller="resultCtrl" ng-show="resultActive">
+            <div class="row">
+                <div class="col-xs-8">
+                    <h1>Result</h1>
+                    <div class="btn-toolbar">
+                        <button class="btn" ng-repeat="question in questionData" ng-class="{'btn-success':question.correct,'btn-danger':!question.correct}" ng-click="setActiveQuestion($index)">
+                            <span class="glyphicon" ng-class="{'glyphicon-ok':question.correct, 'glyphicon-remove':!question.correct}"></span>
+                        </button>
+                        
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row">
+                        <h4>Legend</h4>
+                        <div class="col-sm-4">
+                            <button class="btn btn-success">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </button>
+                            <p>Correct</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                            <p>Incorrect</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
