@@ -55,6 +55,7 @@ function QuizController($scope,$rootScope,quizMetrics , dataService){
     }
 
     $scope.finaliseAnswers=()=>{
+        $scope.quizActive=false;
         $scope.finalise=false;
         numQuestionsAnswered=0;
         $scope.activeQuestion=0;
