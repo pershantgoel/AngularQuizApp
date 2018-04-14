@@ -23,10 +23,10 @@
 <body ng-app="myapp">
     <div class="container">
         <div class="page-header">
-            <h1>Turtle Facts Quiz</h1>
+            <h1>My Angular Quiz</h1>
             <h3>
                 Learn about all the turtles below before you decide to take on the 
-                <strong>TURTLE QUIZ</strong>
+                <strong>QUIZ</strong>
             </h3>
         </div>
         <div ng-controller="listCtrl" ng-hide="quizActive">
@@ -183,6 +183,13 @@
                             <p>Incorrect</p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 top-buffer">
+                    <h2>You Scored "{{ score}} / {{questionLength}}"</h2>
+                    <h2><strong>{{calculatePerc()}}%</strong></h2>
                 </div>
             </div>
         </div>
