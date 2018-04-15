@@ -61,7 +61,7 @@ function QuizController($scope,$rootScope,quizMetrics , dataService){
         $scope.activeQuestion=0;
         $rootScope.resultActive=true;
         quizMetrics.markQuiz();
-        // var finalScore;
+        //var finalScore;
         // $rootScope.finalScore=quizMetrics.markQuiz.numCorrect;
         // var score= quizMetrics.numCorrect;
         // $rootScope.finalScore = score;
