@@ -26,7 +26,7 @@
             <h1>Test-O-Mania</h1>
             <h3>
                 Test your knowledge on Turtles in this
-                <strong>QUIZ</strong>
+                <strong>QUIZ </strong>
             </h3>
         </div>
         <div ng-controller="listCtrl" ng-hide="quizActive">
@@ -58,7 +58,7 @@
                     <div class="modal-dialogue">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h2>{{activeTurtle.type}}</h2>
+                                <h4>{{activeTurtle.type}}</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
@@ -66,7 +66,7 @@
                                         <img ng-src="{{activeTurtle.image_url}}" class="img-rounded img-responsive well-img " alt="">
                                     </div>
                                     </div>
-                                    <div class="row top-buffer">
+                                    <div class="row">
                                         <div class="col-sm-6">
                                                 <p><strong>Locations:</strong>{{activeTurtle.locations}}</p>
                                                 <p><strong>Size:</strong>{{activeTurtle.size}}</p>
@@ -101,18 +101,18 @@
                 </div>
                 <div class="col-xs-4">
                     <div class="row">
-                        <h4>Legend</h4>
+                        <h3>Legend</h3>
                         <div class="col-sm-4">
                             <button class="btn btn-info">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
-                            <p>Answered</p>
+                            <h5>Answered</h5>
                         </div>
                         <div class="col-sm-4">
                             <button class="btn btn-danger">
                                 <span class="glyphicon glyphicon-question-sign"></span>
                             </button>
-                            <p>Unanswered</p>
+                            <h5>Unanswered</h5>
                         </div>
                     </div>
                 </div>
@@ -123,8 +123,8 @@
                     <button class="close" ng-click="error=false">&times</button>
                 </div>
                 <h3>Question:</h3>
-                <div class="well well-sm" ng-hide="finalise">
-                    <div class="row">
+                <div ng-hide="finalise">
+                    <div class="row well well-sm">
                         <div class="col -xs-12">
                             <h4>{{activeQuestion + 1 + "." + questionData[activeQuestion].text}}</h4>
                             <div class="row" ng-if="questionData[activeQuestion].type==='text'">
@@ -146,7 +146,7 @@
                 <div class="well well-sm" ng-show="finalise">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h3>Want to submit answers</h3>
+                            <h4>Want to submit answers</h4>
                             <button class="btn btn-success" ng-click="finaliseAnswers()">Yes</button>
                             <button class="btn btn-danger" ng-click="finalise=false">No</button>
                         </div>
@@ -169,18 +169,18 @@
                 </div>
                 <div class="col-xs-4">
                     <div class="row">
-                        <h4>Legend</h4>
+                        <h3>Legend</h3>
                         <div class="col-sm-4">
                             <button class="btn btn-success">
                                 <span class="glyphicon glyphicon-ok"></span>
                             </button>
-                            <p>Correct</p>
+                            <h5>Correct</h5>
                         </div>
                         <div class="col-sm-4">
                             <button class="btn btn-danger">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </button>
-                            <p>Incorrect</p>
+                            <h5>Incorrect</h5>
                         </div>
                     </div>
                 </div>

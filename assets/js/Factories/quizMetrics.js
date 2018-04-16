@@ -4,8 +4,10 @@ app.factory("quizMetrics",(dataService)=>{
         // resultActive:false,
         quizActive:false,
         correctAnswers:[],
-        // numCorrect:0,   
+        // numCorrect:0, 
         markQuiz:markQuiz
+        // finalScore:0
+        
     }
     return quizObj;
 
@@ -15,8 +17,10 @@ app.factory("quizMetrics",(dataService)=>{
         for(let i=0 ; i<dataService.quizQuestions.length;i++){
             if(dataService.quizQuestions[i].selected===dataService.correctAnswers[i]){
                 dataService.quizQuestions[i].correct=true;
-                numCorrect ++;
+                 numCorrect ++;
+                
                 console.log(numCorrect);
+                // finalScore=numCorrect;
             }
             else{
                 dataService.quizQuestions[i].correct=false;
