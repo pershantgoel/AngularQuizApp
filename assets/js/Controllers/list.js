@@ -5,7 +5,6 @@ app.controller("listCtrl",($scope,$rootScope,quizMetrics , dataService)=>{
  
      $scope.activateQuiz=()=>{
          $rootScope.quizActive=true;
-        //  quizMetrics.changeState("quiz",true);
      }
      
      $scope.changeActiveTurtle=(index)=>{

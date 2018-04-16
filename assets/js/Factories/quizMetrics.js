@@ -1,11 +1,8 @@
 app.factory("quizMetrics",(dataService)=>{
     var numCorrect=0;
     var quizObj={
-        // resultActive:false,
         quizActive:false,
         correctAnswers:[],
-        // numCorrect:0, 
-        // markQuiz:markQuiz,
         markQuiz(){
             
             correctAnswers = dataService.correctAnswers;
@@ -14,9 +11,6 @@ app.factory("quizMetrics",(dataService)=>{
                     dataService.quizQuestions[i].correct=true;
                      numCorrect ++;
                      console.log(numCorrect);
-                   
-                    
-                    // finalScore=numCorrect;
                 }
                 else{
                     dataService.quizQuestions[i].correct=false;
@@ -24,8 +18,6 @@ app.factory("quizMetrics",(dataService)=>{
             }
             return numCorrect;
         }
-        
-        // finalScore:0
         
     }
     return quizObj;
