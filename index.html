@@ -125,16 +125,17 @@
                 <h3>Question:</h3>
                 <div ng-hide="finalise">
                     <div class="row well well-sm">
-                        <div class="col -xs-12">
+                        <div class=" col-md-12  col-sm-12 col -xs-12">
                             <h4>{{activeQuestion + 1 + "." + questionData[activeQuestion].text}}</h4>
                             <div class="row" ng-if="questionData[activeQuestion].type==='text'">
                                 <div class="col-sm-6" ng-repeat="answer in questionData[activeQuestion].possibilities">
-                                    <h4 class="answer" ng-class="{'bg-info':$index===questionData[activeQuestion].selected}" ng-click="selectAnswer($index)">{{answer.answer}}</h4>
+                                    <h4 class="answer" ng-class="{'bg-info':$index===questionData[activeQuestion].selected}" ng-click="selectAnswer($index)">{{$index +1 + ". "}}{{answer.answer}}</h4>
                                 </div>
                             </div>
                             <div class="row" ng-if="questionData[activeQuestion].type==='image'">
                                 <div class="col-sm-6" ng-repeat="answer in questionData[activeQuestion].possibilities">
                                     <div class="image-answer" ng-class="{'image-selected':$index===questionData[activeQuestion].selected}" ng-click="selectAnswer($index)">
+                                        {{$index + 1 + ". "}}
                                         <img ng-src="{{answer.answer}}" alt="">
                                     </div>
                                 </div>
@@ -147,7 +148,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <h4>Want to submit answers</h4>
-                            <button class="btn btn-success" ng-click="finaliseAnswers()">Yes</button>
+                            <button class="btn btn-success" ng-click="finaliseAnswers()">Yes</button> {{score}}
                             <button class="btn btn-danger" ng-click="finalise=false">No</button>
                         </div>
                     </div>
@@ -189,7 +190,13 @@
             <div class="row">
                 <div class="col-xs-12 top-buffer">
                     <h2>You Scored "{{ score}} / {{questionLength}}"</h2>
-                    <h2><strong>{{calculatePerc()}}%</strong></h2>
+                    <button class="btn btn-info" ng-click="calculatePerc()"><strong>Show Percentage</strong></button>
+                    <h2><strong>{{percentage}}</strong></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <marquee behavior="" bgcolor="white" color="black" direction="left">Made By PERSHANT GOEL</marquee>
                 </div>
             </div>
         </div>

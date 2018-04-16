@@ -1,8 +1,11 @@
 app.controller("resultCtrl",($scope,quizMetrics,dataService)=>{
-    $scope.score=quizMetrics.numCorrect;
+    
     $scope.questionLength =dataService.quizQuestions.length;
 
-    function calculatePerc(){
-        return (quizMetrics.markQuiz.numCorrect / dataService.quizQuestions.length)*100;
+    
+    $scope.calculatePerc=()=>{
+        var perc=$scope.score;
+        console.log("score");
+        $scope.percentage=((perc / dataService.quizQuestions.length)*100) +"%";
     }
 });
